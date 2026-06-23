@@ -80,7 +80,7 @@ PROJECT-WIKI
     └── REGULATIONS
 ```
 
-###Purpose of each top-level folder
+### Purpose of each top-level folder
 ```
 01-AI-PROMPTS
 = Agent brain
@@ -104,7 +104,7 @@ PROJECT-WIKI
 = Regulatory references
 ```
 
-###Agent Workflow
+### Agent Workflow
 ```
 User Request
      │
@@ -124,7 +124,7 @@ ORCHESTRATOR
      └── DOCUMENTATION_MASTER
 ```
 
-###Workflow States
+### Workflow States
 ```
 NEW_REQUEST
 ↓
