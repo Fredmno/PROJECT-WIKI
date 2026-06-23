@@ -80,7 +80,8 @@ PROJECT-WIKI
     └── REGULATIONS
 ```
 
-<b>Purpose of each top-level folder<\b>
+###Purpose of each top-level folder
+``
 01-AI-PROMPTS
 = Agent brain
 = Prompts, modes, templates, memory
@@ -101,9 +102,10 @@ PROJECT-WIKI
 = Vendor documentation
 = System documentation
 = Regulatory references
+```
 
-
-<  b>Agent Workflow<\b>
+###Agent Workflow
+```
 User Request
      │
      ▼
@@ -120,8 +122,10 @@ ORCHESTRATOR
      ├── COMMUNICATOR
      │
      └── DOCUMENTATION_MASTER
+```
 
-<  b>Workflow States<\b>
+###Workflow States
+```
 NEW_REQUEST
 ↓
 TRIAGE
@@ -153,3 +157,4 @@ DEPLOYED
 HYPERCARE
 ↓
 CLOSED
+```
