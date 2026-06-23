@@ -78,7 +78,7 @@ PROJECT-WIKI
     ├── POWER_AUTOMATE
     ├── INTEGRATION_REFERENCES
     └── REGULATIONS
-```
+```<br>
 
 ###Purpose of each top-level folder
 ``
