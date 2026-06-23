@@ -79,10 +79,9 @@ PROJECT-WIKI
     ├── INTEGRATION_REFERENCES
     └── REGULATIONS
 ```
-<br>
 
 ###Purpose of each top-level folder
-``
+```
 01-AI-PROMPTS
 = Agent brain
 = Prompts, modes, templates, memory
