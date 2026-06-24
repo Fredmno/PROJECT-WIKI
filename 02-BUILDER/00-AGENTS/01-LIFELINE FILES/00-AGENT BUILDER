@@ -1,0 +1,205 @@
+Yes — and from your screenshot, I can see you're using the newer **Microsoft 365 Copilot Agent Builder** experience with the **Knowledge** section enabled.
+
+## 1. Does the agent automatically have access to OneDrive?
+
+**Not automatically.**
+
+Looking at your screenshot:
+
+### Enabled Sources
+
+You can explicitly add:
+
+* SharePoint files, folders, and sites
+* Teams chats and meetings
+* Emails
+* Websites
+* Azure DevOps Work Items
+
+The OneDrive icon is also visible in the knowledge selector area.
+
+However, the agent only uses sources that you:
+
+* add
+* grant access to
+* configure as knowledge
+
+It should not automatically read your entire OneDrive just because it exists.
+
+### My recommendation
+
+For Lifeline:
+
+✅ Add specific folders
+
+Example:
+
+```text
+OneDrive
+└── AGENTS
+    └── Lifeline
+        ├── README_FIRST.md
+        ├── LifeOS_Master_Manual.md
+        ├── Health_Framework.md
+        ├── Daily_Planning.md
+        ├── Habits.md
+```
+
+instead of:
+
+```text
+❌ Entire OneDrive
+```
+
+This reduces noise and improves retrieval quality.
+
+***
+
+# 2. README\_FIRST.md
+
+**Yes. This is exactly how I would do it.**
+
+In fact, I'd make it the first file in every agent knowledge folder.
+
+Example:
+
+```text
+00-README_FIRST.md
+```
+
+***
+
+## Recommended contents
+
+```markdown
+# READ ME FIRST
+
+You must review and follow all AGENT FILES before responding.
+
+AGENT FILES are the primary source of truth for:
+
+- behavior
+- workflows
+- decision frameworks
+- operating rules
+- standards
+- templates
+- review criteria
+- output formats
+
+Response Process
+
+1. Read this file.
+2. Identify relevant AGENT FILES.
+3. Retrieve and apply guidance from those files.
+4. Generate the response.
+5. Verify consistency with the retrieved guidance.
+
+Rules
+
+- Never ignore applicable AGENT FILES.
+- Never invent procedures if a relevant AGENT FILE exists.
+- Never contradict AGENT FILE guidance without explaining why.
+- If multiple files contain related guidance, reconcile them.
+- If information is missing, state what information is required.
+
+Verification Rule
+
+Before claiming that something exists, was created, was completed, was approved, or was reviewed:
+
+- Verify using available evidence.
+- If verification is unavailable, state:
+
+"I cannot verify this from the available information."
+
+Priority Order
+
+1. User request
+2. AGENT FILES
+3. General reasoning
+
+When conflicts exist:
+- Explain the conflict.
+- Ask for clarification if required.
+
+The objective is consistency, accuracy, and reliability.
+```
+
+***
+
+# 3. Folder structure I would use
+
+For Lifeline:
+
+```text
+Lifeline
+│
+├── 00-README_FIRST.md
+│
+├── 01-LIFE_OS
+│   ├── LifeOS_Master_Manual.md
+│   ├── Daily_Planning.md
+│   ├── Weekly_Planning.md
+│   └── Energy_Management.md
+│
+├── 02-HEALTH
+│   ├── Sleep_Framework.md
+│   ├── Hydration.md
+│   ├── Exercise.md
+│   └── Nutrition.md
+│
+├── 03-PROFILE
+│   ├── User_Profile.md
+│   ├── Work_Profile.md
+│   └── Personal_Goals.md
+│
+└── 04-TEMPLATES
+    ├── Daily_Executive_Brief.md
+    ├── Weekly_Review.md
+    └── End_of_Day_Review.md
+```
+
+***
+
+# 4. Instruction field recommendation
+
+Keep it short.
+
+```text
+# Mission
+
+Help the user run a clear, balanced, and sustainable life.
+
+Always review and follow AGENT FILES before responding.
+
+AGENT FILES are the primary source of truth for:
+
+- behavior
+- planning
+- health routines
+- decision frameworks
+- templates
+- standards
+
+Read README_FIRST.md before applying other files.
+
+If applicable AGENT FILES exist, follow them before generating a response.
+
+Never invent calendar availability, reminders, appointments, approvals, or completed actions.
+
+If information is missing, state exactly what is required.
+```
+
+This keeps you safely under the instruction limit while moving the real intelligence into the knowledge files.
+
+### My verdict
+
+✅ Yes, use a `00-README_FIRST.md`
+
+✅ Keep Instructions short (1,000–2,000 chars)
+
+✅ Put the large manuals in Knowledge
+
+✅ Add only the specific OneDrive/SharePoint folders for that agent
+
+✅ For Lifeline, build a dedicated `AGENTS/Lifeline/` folder and point the agent to it rather than your entire OneDrive.
